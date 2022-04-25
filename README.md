@@ -91,5 +91,81 @@ body{
 ...
 
 ```
+### Свойство display
+Кроме свойства float, которое позволяет изменять позицию элемента, в CSS есть еще одно важное свойство - display. Оно позволяет управлять блоком элемента и также влиять на его позиционирование относительно соседних элементов.
+Это свойство может принимать следующие значения:
+ - inline: элемент становится строчным, подобно словам в строке текста
+- block: элемент становится блочным, как параграф
+- inline-block: элемент располагается как строка текста
+- list-item: элемент позиционируется как элемент списка обычно с добавление маркера виде точки или порядкового номера
+- run-in: тип блока элемента зависит от окружающих элементов
+- flex: позволяет осуществлять гибкое позиционирование элментов
+- table, inline-table: позволяет расположить элементы в виде таблицы
+- none: элемент не виден и удален из разметки html
+```
+body,
+#header,
+#wrapper {
+  margin: 0;
+  padding: 0;
+}
+
+#main,
+#footer,
+#one,
+#two,
+#three,
+#four {
+  padding: 10px;
+  height: 200px;
+}
+#main {
+  background-color: #ddd;
+}
+#one,
+#two,
+#three,
+#four {
+  background-color: #eee;
+  margin: 10px;
+}
+#footer {
+  background-color: #ccc;
+}
+#main {
+  height: 1000px;
+}
+
+#header {
+  background-color: #d1c3c3;
+  width: 200px;
+  height: 100%;
+  display: flex;
+  position: fixed;
+  right: 0;
+}
+#wrapper {
+  margin-right: 200px;
+}
+
+```
+```
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="main2.css" />
+<section id="header">header</section>
+<div id="wrapper">
+  <div id="main">
+    main
+    <section id="one">section one</section>
+    <section id="two">section two</section>
+    <section id="three">section three</section>
+    <section id="four">section four</section>
+  </div>
+  <section id="footer">footer</section>
+</div>
+
+```
 ### Тестирование адаптивного дизайна
    - Google Chrome надо перейти в меню Дополнительные инструменты -> Инструменты разработчика
+
+
