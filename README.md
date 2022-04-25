@@ -127,3 +127,80 @@
         margin-right: 180px;
     }
 ```
+### Выравнивание столбцов по высоте
+При блочной верстке можно столкнуться с проблемой высоты с столбцов, если плавающие блоки имеют определенный фон
+```
+<style>
+  body,
+  h2,
+  p {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-size: 18px;
+  }
+  #header {
+    background-color: #EEE;
+    border-bottom: 1px solid #CCC;
+    height: 80px;
+  }
+  #menu{
+      background-color: #DDD;
+      float: left;
+      width:150px;
+  }
+  #main{
+      background-color: #F7F7F7;
+      border-left: 1px solid #CCC;
+      margin-left: 150px;
+      padding: 10px;
+  }
+  #footer{
+      border-top:1px solid #CCC;
+      background-color: #DEDEDE;
+  }
+</style>
+<div id="header">
+  <h2>MySyte.com</h2>
+</div>
+<div id="menu">
+  <ul>
+    <li><a href="#">Main</a></li>
+    <li><a href="#">Blog</a></li>
+    <li><a href="#">Contacts</a></li>
+    <li><a href="#">About</a></li>
+  </ul>
+</div>
+<div id="main">
+  <h2>Lorem ipsum dolor</h2>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam eos error
+    commodi nihil provident similique, beatae excepturi doloribus quas ipsum
+    fugiat ipsa modi molestias placeat cumque, ex, aperiam eaque et?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam eos error
+    commodi nihil provident similique, beatae excepturi doloribus quas ipsum
+    fugiat ipsa modi molestias placeat cumque, ex, aperiam eaque et?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam eos error
+    commodi nihil provident similique, beatae excepturi doloribus quas ipsum
+    fugiat ipsa modi molestias placeat cumque, ex, aperiam eaque et?
+  </p>
+</div>
+<div id="footer">Copyright &copy; MySite.com, 2022</div>
+
+```
+-  решением проблемы является оборачивание в отдельный элемент, у которого устанавливается фон
+```
+#wrapper{
+    background-color: #ddd;
+  }
+  #menu {
+    float: left;
+    width: 150px;
+  }
+```
+```
+<div id="wrapper">
+  <div id="main">
+  ...
+```
