@@ -101,3 +101,29 @@
     <div id="content">Content</div>
 </div>
 ```
+
+### Применим обтекание к блоку меню
+```
+#main{
+        background-color: #EEE;
+        height: 200px;
+        margin-right: 170px;
+    }
+    #menu{
+        background-color: #DDD;
+        float: left;
+        width: 160px;
+    }
+```
+ - Аналогично можно сделать блок меню справа:
+```
+#menu{
+        background-color: #DDD;
+        float: right;
+        width: 160px;
+    }
+    #content{
+        background-color: #EEE;
+        margin-right: 180px;
+    }
+```
