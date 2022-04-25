@@ -54,4 +54,50 @@
     }
 ```
   
-  
+### Более сложная структура
+```
+#leftsidebar{
+        background-color: #DDD;
+        float: left;
+        width: 150px;
+    }
+    #rightsidebar{
+        background-color: #BBB;
+        float: right;
+        width:150px;
+    }
+    #main{
+        background-color: #EEE;
+        height: 200px;
+        margin-left: 170px;
+        margin-right: 170px;
+    }
+```
+
+### Вложенные (плавающие) блоки
+- блок основного содержимого может включать блок собственно содержимого и блок меню
+```
+#sidebar{
+        background-color: #BBB;
+        float: right;
+        width:150px;
+    }
+    #main{
+        background-color: #EEE;
+        height: 200px;
+        margin-right: 170px;
+    }
+    #menu{
+        background-color: #DDD;
+    }
+    #content{
+        background-color: #EEE;
+    }
+```
+```
+<div id="sidebar">RightSidebar</div>
+<div id="main">
+    <div id="menu">Menu</div>
+    <div id="content">Content</div>
+</div>
+```
