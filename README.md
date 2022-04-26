@@ -229,5 +229,25 @@
  - правила Media Query позволяют определить стиль в зависимости от размеров браузера
 Например, чтобы применить стиль к мобильным устройствам мы можем написать так:
 ```
-<link rel="stylesheet" type="text/css" media="(max-device-width:480px)" href="mobile.css" />
+
+/* для фаблетов */
+@media (min-width: 481px) and (max-width: 768px) {
+  #wrapper {
+    padding-right: 0px;
+  }
+  #header {
+    width: 0px;
+  }
+}
+
+/* для планшетов */
+@media (min-width: 769px) and (max-width: 1024px) {
+  #wrapper {
+    padding-right: 300px;
+  }
+  #header {
+    width: 300px;
+  }
+}
+
 ```
