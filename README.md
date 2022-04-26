@@ -232,4 +232,8 @@
  <meta name="viewport" content="width=device-width">
 ```
 ### Media Query
-
+ - правила Media Query позволяют определить стиль в зависимости от размеров браузера
+Например, чтобы применить стиль к мобильным устройствам мы можем написать так:
+```
+<link rel="stylesheet" type="text/css" media="(max-device-width:480px)" href="mobile.css" />
+```
