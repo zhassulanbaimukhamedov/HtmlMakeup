@@ -9,42 +9,57 @@
 Блочная верстка - это когда для разметки используется CSS-свойство float, а основным элементов является элемент div.
 В начале определим все блоки. 
 ```
-body{
-    margin:0;
-    padding:0;
-}
-#header,
-#main,
-#footer{
-    border: 1px solid #000;
-    margin: 10px;
-    height: 80px;
-}
-#main{
-    height:600px;
-}
-
-```
-```
 <section id="header">header</section>
 <div id="main">main</div>
 <section id="footer">footer</section>
+<style>
+  #header {
+    background-color: #ccc;
+    height: 200px;
+  }
+  #main {
+    background-color: #ddd;
+    height: 1000px;
+  }
+  #footer {
+    background-color: #eee;
+    height: 200px;
+  }
+  body{
+      margin:0;
+      padding:0;
+  }
+</style>
 
 
 ```  
  ### Эффект обтекания
- - Чтобы переместить блок сайдбара влево по отношению к блоку основного содержимого , нам надо указать свойство float: left и ширину.
+ - Чтобы переместить блок сайдбара вправо по отношению к блоку основного содержимого , нам надо указать свойство float: right и ширину.
 
 ```
-...
-#header{
+<style>
+  #header {
+    background-color: #ccc;
+    height: 200px;
     float:right;
-    width:150px;
-}
-#main{
-    margin-right: 160px;
-}
-...
+    width:200px;
+  }
+  #main {
+    background-color: #ddd;
+    height: 1000px;
+    margin-right: 200px;
+  }
+  #footer {
+    background-color: #eee;
+    height: 200px;
+    margin-right: 200px;
+  }
+  body{
+      margin:0;
+      padding:0;
+  }
+</style>
+
 ```
   
  
@@ -52,25 +67,26 @@ body{
 - блок основного содержимого может включать блок собственно содержимого и блок меню
 ```
 ...
-#one,
-#two,
-#three,
-#four {
-  border: 1px solid #000;
-  margin: 10px;
-  height: 80px;
-}
-...
-```
-```
-...
 <div id="main">
-    main
-    <section id="one">section one</section>
-    <section id="two">section two</section>
-    <section id="three">section three</section>
-    <section id="four">section four</section>
-  </div>
+  div main
+  <section id="one">section one</section>
+  <section id="two">section two</section>
+  <section id="three">section three</section>
+  <section id="four">section four</section>
+</div>
+...
+```
+```
+...
+#one,
+  #two,
+  #three,
+  #four {
+    background-color: #f7f7f7;
+    margin: 10px;
+    height: 200px;
+  }
+
 ...
 ```
    
@@ -79,20 +95,34 @@ body{
 -  решением проблемы является оборачивание в отдельный элемент, у которого устанавливается фон
 ```
 ...
- <div id="wrapper">
+<div id="wrapper">
+  <section id="header">section header</section>
   <div id="main">
+    div main
+    <section id="one">section one</section>
+    <section id="two">section two</section>
+    <section id="three">section three</section>
+    <section id="four">section four</section>
+  </div>
+  <section id="footer">section footer</section>
+</div>
 ...
 ```
 ```
 ...
 #wrapper {
-  margin-right: 160px;
-}
+    background-color: #ccc;
+  }
+  #header {
+    height: 200px;
+    float: right;
+    width: 200px;
+  }
 ...
 
 ```
 ### Свойство display
-Кроме свойства float, которое позволяет изменять позицию элемента, в CSS есть еще одно важное свойство - display. Оно позволяет управлять блоком элемента и также влиять на его позиционирование относительно соседних элементов.
+Кроме свойства float, которое позволяет изменять позицию элемента, есть еще одно важное свойство - display. Оно позволяет управлять блоком элемента и также влиять на его позиционирование относительно соседних элементов.
 Это свойство может принимать следующие значения:
  - inline: элемент становится строчным, подобно словам в строке текста
 - block: элемент становится блочным, как параграф
@@ -103,68 +133,95 @@ body{
 - table, inline-table: позволяет расположить элементы в виде таблицы
 - none: элемент не виден и удален из разметки html
 ```
-body,
-#header,
-#wrapper {
-  margin: 0;
-  padding: 0;
-}
-
-#main,
-#footer,
-#one,
-#two,
-#three,
-#four {
-  padding: 10px;
-  height: 200px;
-}
-#main {
-  background-color: #ddd;
-}
-#one,
-#two,
-#three,
-#four {
-  background-color: #eee;
-  margin: 10px;
-}
-#footer {
-  background-color: #ccc;
-}
-#main {
-  height: 1000px;
-}
-
-#header {
-  background-color: #d1c3c3;
-  width: 200px;
-  height: 100%;
-  display: flex;
-  position: fixed;
-  right: 0;
-}
-#wrapper {
-  margin-right: 200px;
-}
-
-```
-```
-<meta name="viewport" content="width=device-width">
-<link rel="stylesheet" href="main2.css" />
-<section id="header">header</section>
+<section id="header">
+    <header>
+        section header
+    </header>
+    <nav id="nav">
+        <ul>
+            <li>
+                <a href="#one">One</a>
+            </li>
+            <li>
+                <a href="#two">Two</a>
+            </li>
+            <li>    
+                <a href="#three">Three</a>
+            </li>
+            <li><a href="#four">Four</a></li>
+        </ul>
+    </nav>
+    <footer>
+        social media icons
+    </footer>
+</section>
 <div id="wrapper">
   <div id="main">
-    main
+    div main
     <section id="one">section one</section>
     <section id="two">section two</section>
     <section id="three">section three</section>
     <section id="four">section four</section>
   </div>
-  <section id="footer">footer</section>
+  <section id="footer">section footer</section>
 </div>
+<style>
+  /* ------------- основные блоки ---*/
+  #wrapper {
+    background-color: #ccc;
+    padding-right: 200px;
+  }
+  #header {
+    background: #4acaa8;
+    color: #d2f2e9;
+    height: 100%;
+    /* float: right; */
+    width: 200px;
+    position: fixed;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+  }
+  #header>nav ul{
+      list-style: none;
+      padding: 0;
+  }
+  #header>nav ul li{
+    border-top: solid 2px #5ccfb1;
+  }
+  
+  #main {
+    background-color: #ddd;
+    height: 1000px;
+    /* margin-right: 200px; */
+  }
+  #footer {
+    background-color: #eee;
+    height: 200px;
+    /* margin-right: 200px; */
+  }
+
+  /*------------------ вложенные блоки--*/
+  #one,
+  #two,
+  #three,
+  #four {
+    background-color: #f7f7f7;
+    margin: 10px;
+    height: 200px;
+  }
+  /*-----------------------------------*/
+  body {
+    margin: 0;
+    padding: 0;
+  }
+</style>
+
 
 ```
+ 
 ### Тестирование адаптивного дизайна
    - Google Chrome надо перейти в меню Дополнительные инструменты -> Инструменты разработчика
 
@@ -174,4 +231,5 @@ body,
 ```
  <meta name="viewport" content="width=device-width">
 ```
+### Media Query
 
